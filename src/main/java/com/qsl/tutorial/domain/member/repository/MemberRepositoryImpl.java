@@ -1,7 +1,6 @@
 package com.qsl.tutorial.domain.member.repository;
 
 import com.qsl.tutorial.domain.member.entity.Member;
-import com.qsl.tutorial.member.entity.QMember;
 
 import com.querydsl.core.types.Order;
 import com.querydsl.core.types.OrderSpecifier;
@@ -17,7 +16,7 @@ import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
-import static com.qsl.tutorial.member.entity.QMember.member;
+import static com.qsl.tutorial.domain.member.entity.QMember.member;
 
 @RequiredArgsConstructor
 public class MemberRepositoryImpl implements MemberRepositoryCustom {
@@ -52,7 +51,7 @@ public class MemberRepositoryImpl implements MemberRepositoryCustom {
 
   @Override
   public List<Member> getOneMembersOrderByIdAsc() {
-    return queryFactory.selectFrom(QMember.member).orderBy(member.id.asc()).fetch();
+    return queryFactory.selectFrom(member).orderBy(member.id.asc()).fetch();
   }
 
   @Override
